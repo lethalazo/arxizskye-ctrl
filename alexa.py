@@ -384,14 +384,14 @@ class rest_api_handler(object):
 # list will be used.
 
 FAUXMOS = [
-    ['Main lights', rest_api_handler('http://arxizpi.local/16/on', 'http://arxizpi.local/16/off'), 9001],
-    ['Bathroom light', rest_api_handler('http://arxizpi.local/17/on', 'http://arxizpi.local/17/off'), 9002],
-    ['Bedroom lights', rest_api_handler('http://arxizpi.local/18/on', 'http://arxizpi.local/18/off'), 9003],
+    ['Switch 1', rest_api_handler('http://arxizpi.local/16/on', 'http://arxizpi.local/16/off'), 9001],
+    ['Switch 2', rest_api_handler('http://arxizpi.local/17/on', 'http://arxizpi.local/17/off'), 9002],
+    ['Switch 3', rest_api_handler('http://arxizpi.local/18/on', 'http://arxizpi.local/18/off'), 9003],
     ['Switch 4', rest_api_handler('http://arxizpi.local/19/on', 'http://arxizpi.local/19/off'), 9004],
-    ['Entrance light', rest_api_handler('http://arxizpi.local/20/on', 'http://arxizpi.local/20/off'), 9005],
-    ['Street lights', rest_api_handler('http://arxizpi.local/21/on', 'http://arxizpi.local/21/off'), 9006],
-    ['Garden lights', rest_api_handler('http://arxizpi.local/22/on', 'http://arxizpi.local/22/off'), 9007],
-    ['Pool light', rest_api_handler('http://arxizpi.local/23/on', 'http://arxizpi.local/23/off'), 9008],
+    ['Switch 5', rest_api_handler('http://arxizpi.local/20/on', 'http://arxizpi.local/20/off'), 9005],
+    ['Switch 6', rest_api_handler('http://arxizpi.local/21/on', 'http://arxizpi.local/21/off'), 9006],
+    ['Switch 7', rest_api_handler('http://arxizpi.local/22/on', 'http://arxizpi.local/22/off'), 9007],
+    ['Switch 8', rest_api_handler('http://arxizpi.local/23/on', 'http://arxizpi.local/23/off'), 9008],
     ['Loop', rest_api_handler('http://arxizpi.local/relay/on', 'http://arxizpi.local/relay/off'), 9009],
     ['All switches', rest_api_handler('http://arxizpi.local/allswitch/on', 'http://arxizpi.local/allswitch/off'), 9010]
 ]
