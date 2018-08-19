@@ -1,0 +1,82 @@
+<!DOCTYPE html> 
+<head> 
+<title>BlinkPi Test Server</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+</head>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"   integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="   crossorigin="anonymous">
+</script>
+<script>
+
+$(window).scroll(function() {
+  sessionStorage.scrollTop = $(this).scrollTop();
+});
+
+$(document).ready(function() {
+  if (sessionStorage.scrollTop != "undefined") {
+    $(window).scrollTop(sessionStorage.scrollTop);
+  }
+});
+</script>
+ <body bgcolor="lightgray"> 
+	<h1 style="font-family: sans;">ArxizBlink Switch Testing Server</h1>
+	 {% if message %} 
+	<h4>{{ message }}</h4> <br/>
+	 {% endif %}
+	<center>
+	<div>
+	{% for pin in pins %} 
+	<p style="display:inline-block text-align: center;">
+		<div style="align: center; width:150px; text-align: center;">
+		{{ pins[pin].name }} 
+	{% if pins[pin].state == true %} 
+		<div width="150px" style="align: center; text-align: center;">
+		<img onclick="
+	$.ajax({ 
+	url: '/{{pin}}/on', 
+	type: 'POST', 
+	success: function(){ 
+		location.reload(); 
+		}, 
+		error: function(error) 
+		{ console.log(error); } 
+		});" style="padding-top: 0.5em;"valign="center" src="http://www.clker.com/cliparts/g/o/B/T/y/X/glossy-green-button-hi.png" width="150px" height="150px" />
+		</div>
+		</div>
+	{% else %} 
+		<div width="150px" style="align: center; text-align: center;">
+		<img onclick="
+	$.ajax({ 
+	url: '/{{pin}}/off', 
+	type: 'POST', 
+	success: function(){ 
+		location.reload(); 
+		}, 
+		error: function(error) 
+		{ console.log(error); } 
+		});" style="padding-top: 0.5em;"valign="center" src="http://www.clker.com/cliparts/l/P/u/k/t/R/glossy-red-button-hi.png" width="150px" height="150px" />
+		</div>
+		</div>
+	{% endif %}
+		{% endfor %}
+	<div width="150px" style="text-align: center;"><br />
+			Relay Loop Test<br />
+			{% if loop == "saveMe" %}
+			 <img onclick="$.ajax({ 
+			 url: '/relay/off', 
+			 type: 'POST', 
+			 success: function(){ 
+			 location.reload(); 
+			 }, 
+			 error: function(error){ 
+			 console.log(error); 
+			 } 
+			 });" style="padding-top: 0.5em;"valign="center" src="http://www.clker.com/cliparts/l/P/u/k/t/R/glossy-red-button-hi.png" width="150px" height="150px" />
+			{% else %}
+			 <img onclick="$.ajax({ url: '/relay/on', type: 'POST', success: function(){ location.reload(); }, error: function(error) { console.log(error); } });" style="padding-top: 0.5em;"valign="center" src="http://www.clker.com/cliparts/g/o/B/T/y/X/glossy-green-button-hi.png" width="150px" height="150px" />
+			{% endif %}
+		</div>
+	</p>
+	</div> 
+	</center>
+ </body> 
+</html>
