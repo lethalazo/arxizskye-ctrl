@@ -1,7 +1,7 @@
 
 import RPi.GPIO as GPIO
 import time
-
+import sklearn as sk
 
 GPIO.setmode(GPIO.BCM)
 

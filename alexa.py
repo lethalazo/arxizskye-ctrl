@@ -35,7 +35,7 @@ import sys
 import time
 import urllib
 import uuid
-
+import sklearn as sk
 
 
 # This XML is the minimum needed to define one of our virtual switches

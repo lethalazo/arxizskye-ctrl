@@ -1,5 +1,7 @@
 import RPi.GPIO as GPIO
 import time
+import sklearn as sk
+
 from flask import Flask, render_template, request 
 app = Flask(__name__) 
 GPIO.setmode(GPIO.BCM) 
