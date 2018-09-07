@@ -1,30 +1,3 @@
-#!/usr/bin/env python
-
-"""
-The MIT License (MIT)
-
-Copyright (c) 2015 Maker Musings
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-THE SOFTWARE.
-"""
-
-# For a complete discussion, see http://www.makermusings.com
 
 import email.utils
 import requests
@@ -384,16 +357,7 @@ class rest_api_handler(object):
 # list will be used.
 
 FAUXMOS = [
-    ['Switch 1', rest_api_handler('http://arxizpi.local/16/on', 'http://arxizpi.local/16/off'), 9001],
-    ['Switch 2', rest_api_handler('http://arxizpi.local/17/on', 'http://arxizpi.local/17/off'), 9002],
-    ['Switch 3', rest_api_handler('http://arxizpi.local/18/on', 'http://arxizpi.local/18/off'), 9003],
-    ['Switch 4', rest_api_handler('http://arxizpi.local/19/on', 'http://arxizpi.local/19/off'), 9004],
-    ['Switch 5', rest_api_handler('http://arxizpi.local/20/on', 'http://arxizpi.local/20/off'), 9005],
-    ['Switch 6', rest_api_handler('http://arxizpi.local/21/on', 'http://arxizpi.local/21/off'), 9006],
-    ['Switch 7', rest_api_handler('http://arxizpi.local/22/on', 'http://arxizpi.local/22/off'), 9007],
-    ['Switch 8', rest_api_handler('http://arxizpi.local/23/on', 'http://arxizpi.local/23/off'), 9008],
-    ['Loop', rest_api_handler('http://arxizpi.local/relay/on', 'http://arxizpi.local/relay/off'), 9009],
-    ['All switches', rest_api_handler('http://arxizpi.local/allswitch/on', 'http://arxizpi.local/allswitch/off'), 9010]
+    ['<switch>', rest_api_handler('http://<hostname>.local/<switch>/on', 'http://<hostname>.local/<switch>/off'), 9001],
 ]
 
 
