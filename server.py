@@ -1,6 +1,5 @@
 import RPi.GPIO as GPIO
 import time
-import sklearn as sk
 
 from flask import Flask, render_template, request 
 app = Flask(__name__) 
@@ -66,35 +65,32 @@ def relay(action):
     loop = "saveMe"
 
     try:
-            while i <= 23:
-                for i in gpioList:
-                                print i
-                                GPIO.output(i, GPIO.LOW)
-				if i >= 23:
-					time.sleep(1);
-					GPIO.output(16, GPIO.HIGH)
-					time.sleep(0.13);
-					GPIO.output(17, GPIO.HIGH)
-					time.sleep(0.13);
-					GPIO.output(18, GPIO.HIGH)
-					time.sleep(0.13);
-					GPIO.output(19, GPIO.HIGH)
-					time.sleep(0.13);
-					GPIO.output(20, GPIO.HIGH)
-					time.sleep(0.13);
-					GPIO.output(21, GPIO.HIGH)
-					time.sleep(0.13);
-					GPIO.output(22, GPIO.HIGH)
-					time.sleep(0.13);
-					GPIO.output(23, GPIO.HIGH)
-					break
-					return
-				elif i == 23:
-					break
-				else:
-					time.sleep(sleepTimeShort);
-		if i == 23:
-		  break
+        while i <= 23:
+            for i in gpioList:
+                PIO.output(i, GPIO.LOW)
+			if i >= 23:
+				time.sleep(1);
+				GPIO.output(16, GPIO.HIGH)
+				time.sleep(0.13);
+				GPIO.output(17, GPIO.HIGH)
+				time.sleep(0.13);
+				GPIO.output(18, GPIO.HIGH)
+				time.sleep(0.13);
+				GPIO.output(19, GPIO.HIGH)
+				time.sleep(0.13);
+				GPIO.output(20, GPIO.HIGH)
+				time.sleep(0.13);
+				GPIO.output(21, GPIO.HIGH)
+				time.sleep(0.13);
+				GPIO.output(22, GPIO.HIGH)
+				time.sleep(0.13);
+				GPIO.output(23, GPIO.HIGH)
+				break
+				return
+			elif i == 23:
+				break
+			else:
+				time.sleep(sleepTimeShort);
 
     except action == "off":
 		loop = "notToday"
