@@ -355,7 +355,7 @@ class rest_api_handler(object):
 # list will be used.
 
 FAUXMOS = [
-    ['<switch>', rest_api_handler('http://<hostname>.local/<switch>/on', 'http://<hostname>.local/<switch>/off'), 9001],
+    ['<switch>', rest_api_handler('http://<hostname>.local/<switch>/on', 'http://<hostname>.local/<switch>/off'), 9001]
 ]
 
 
