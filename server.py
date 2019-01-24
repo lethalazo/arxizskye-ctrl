@@ -7,7 +7,7 @@ from flask import request, Response
 
 def check_auth(username, password):
 	#Checks if uname and pass are correct.
-    return (username == '' and password == '')
+    return ()
 
 def authenticate():
 	#Authenticates and sends a response if wrong.
@@ -79,22 +79,19 @@ def allswitch(action):
 #Function to turn on/off a the switch looper
 @app.route("/relay/<action>", methods=['POST', 'GET'])
 def relay(action):
-	gpioList = [16, 17, 18, 19, 20 , 21, 22, 23]
-	i = 16
-	powState = GPIO.LOW
-	timeToSleep = 0.50
+	timeToSleep = 0.40
 	#Loops through all the switches setting them on
-	while i < 8:
-		GPIO.output(gpioList[i], powState)
+	for pin in pins:
+		GPIO.output(pin, GPIO.LOW)
 		time.sleep(timeToSleep)
-		#When reaches the last switch, loops through and turns off all the switches.
-		if i == 7:
-			i = 0
-			powState = GPIO.HIGH
-			timeToSleep = 0.50
-			continue
-		i = i+1
 		timeToSleep = timeToSleep - 0.04
+	time.sleep(0.10)
+	#When reaches the last switch, loops through and turns off all the switches.
+	for pin in pins:
+		GPIO.output(pin, GPIO.HIGH)
+		time.sleep(timeToSleep)
+		timeToSleep = timeToSleep + 0.04
+	#Updates template
 	templateData = {"message": "Loop initialized."}
 	return render_template('main.html', **templateData)
 
