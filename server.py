@@ -44,6 +44,7 @@ pins = { 16 : {'name' : 'Switch 1', 'state' : GPIO.LOW},
 for pin in pins:
 	#Set each gpio pin to output
 	GPIO.setup(pin, GPIO.OUT)
+	GPIO.output(pin, GPIO.LOW)
 
 @app.route("/")
 #Added the authentication decorator
